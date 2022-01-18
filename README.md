@@ -41,8 +41,13 @@ This repository contains all the custom detekt rules that are based on Deloitte 
 
 
 ## Documentation
-You can find the documentation about how to write custom [rules here][custom_rule_documentation].
+- You can find the documentation about how to write custom [rules here][custom_rule_documentation].
+- Kotlin PSI Classes - [link here][kotlin_psi_classes]
+- Sample Detekt Rules - [link here][sample_detekt_rules] 
 
+[sample_detekt_rules]: https://github.com/detekt/detekt/tree/main/detekt-rules-style/src/main/kotlin/io/gitlab/arturbosch/detekt/rules/style
+
+[kotlin_psi_classes]: https://github.com/JetBrains/kotlin/tree/master/compiler/psi/src/org/jetbrains/kotlin/psi
 
 [kotlin_style_guide]: https://hub.deloittedigital.com.au/wiki/display/MCD/Kotlin+Style+Guide
 
