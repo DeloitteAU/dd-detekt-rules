@@ -3,7 +3,6 @@
 This repository contains all the custom detekt rules that are based on Deloitte Digital's [Kotlin Style Guide][kotlin_style_guide].
 
 ## Development Workflow
-
 1. Create a branch from master and follow this naming convention for your branch: `rule/your-custom-rule` (E.g. `rule/collapsible-if-statements`).
 2. From the project folder, create your custom rules inside `src/main/kotlin/com/dd/detektcustomrules/rules`.
 3. Create a test for your custom rule.
@@ -17,6 +16,7 @@ This repository contains all the custom detekt rules that are based on Deloitte 
 - Although we can't avoid traversing through a PSI node, it's always best to keep the number of loops/iteration over a collection as minimal as possible to prevent performance overhead.
 - When calling the report method to report a violation, make sure to use a message that best describes the violation and add some information that will help the developers solve it.
 - When writing tests, make sure all possible scenarios are covered.
+
 
 ## How to use these rules in your project
 1. Run `.gradlew build` in your terminal. This should create a jar file.
@@ -39,11 +39,15 @@ This repository contains all the custom detekt rules that are based on Deloitte 
         active: true
     ```
 
+
 ## Documentation
+- You can find the documentation about how to write custom [rules here][custom_rule_documentation].
+- Kotlin PSI Classes - [link here][kotlin_psi_classes]
+- Sample Detekt Rules - [link here][sample_detekt_rules] 
 
-You can find the documentation about how to write custom [rules here][custom_rule_documentation].
+[sample_detekt_rules]: https://github.com/detekt/detekt/tree/main/detekt-rules-style/src/main/kotlin/io/gitlab/arturbosch/detekt/rules/style
 
-
+[kotlin_psi_classes]: https://github.com/JetBrains/kotlin/tree/master/compiler/psi/src/org/jetbrains/kotlin/psi
 
 [kotlin_style_guide]: https://hub.deloittedigital.com.au/wiki/display/MCD/Kotlin+Style+Guide
 
