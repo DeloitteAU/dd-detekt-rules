@@ -2,6 +2,8 @@
 package com.dd.detektcustomrules
 
 import com.dd.detektcustomrules.rules.CollapsibleIfStatement
+import com.dd.detektcustomrules.rules.ExposingMutableObservableTypeProps
+import com.dd.detektcustomrules.rules.NamingBackingProperties
 import io.gitlab.arturbosch.detekt.api.Config
 import io.gitlab.arturbosch.detekt.api.RuleSet
 import io.gitlab.arturbosch.detekt.api.RuleSetProvider
@@ -15,6 +17,8 @@ class DDRuleSetProvider : RuleSetProvider {
             ruleSetId,
             listOf(
                 CollapsibleIfStatement(config),
+                ExposingMutableObservableTypeProps(config),
+                NamingBackingProperties(config)
             ),
         )
     }
