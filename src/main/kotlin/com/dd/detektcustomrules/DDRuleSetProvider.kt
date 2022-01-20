@@ -2,7 +2,7 @@
 package com.dd.detektcustomrules
 
 import com.dd.detektcustomrules.rules.CollapsibleIfStatement
-import com.dd.detektcustomrules.rules.IfElseOmittingBraces
+import com.dd.detektcustomrules.rules.IfOmittingBraces
 import io.gitlab.arturbosch.detekt.api.Config
 import io.gitlab.arturbosch.detekt.api.RuleSet
 import io.gitlab.arturbosch.detekt.api.RuleSetProvider
@@ -16,7 +16,7 @@ class DDRuleSetProvider : RuleSetProvider {
             ruleSetId,
             listOf(
                 CollapsibleIfStatement(config),
-                IfElseOmittingBraces(config)
+                IfOmittingBraces(config)
             ),
         )
     }

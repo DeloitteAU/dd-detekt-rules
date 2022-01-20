@@ -17,7 +17,7 @@ class IfElseOmittingBracesTest {
             }
         }
         """
-        val findings = IfElseOmittingBraces(Config.empty).compileAndLint(code)
+        val findings = IfOmittingBraces(Config.empty).compileAndLint(code)
         assertThat(findings).hasSize(0)
     }
 
@@ -33,7 +33,7 @@ class IfElseOmittingBracesTest {
             }
         }
         """
-        val findings = IfElseOmittingBraces(Config.empty).compileAndLint(code)
+        val findings = IfOmittingBraces(Config.empty).compileAndLint(code)
         assertThat(findings).hasSize(0)
     }
 
@@ -48,7 +48,7 @@ class IfElseOmittingBracesTest {
             }
         }
         """
-        val findings = IfElseOmittingBraces(Config.empty).compileAndLint(code)
+        val findings = IfOmittingBraces(Config.empty).compileAndLint(code)
         assertThat(findings).hasSize(1)
     }
     @Test
@@ -61,7 +61,7 @@ class IfElseOmittingBracesTest {
             }
         }
         """
-        val findings = IfElseOmittingBraces(Config.empty).compileAndLint(code)
+        val findings = IfOmittingBraces(Config.empty).compileAndLint(code)
         assertThat(findings).hasSize(1)
     }
 }

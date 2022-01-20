@@ -10,7 +10,7 @@ import io.gitlab.arturbosch.detekt.api.Severity
 import org.jetbrains.kotlin.psi.KtBlockExpression
 import org.jetbrains.kotlin.psi.KtIfExpression
 
-class IfElseOmittingBraces(config: Config) : Rule(config) {
+class IfOmittingBraces(config: Config) : Rule(config) {
     override val issue = Issue(
         javaClass.simpleName,
         Severity.CodeSmell,
