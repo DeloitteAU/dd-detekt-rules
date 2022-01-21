@@ -39,6 +39,7 @@ class IfOmittingBraces(config: Config) : Rule(config) {
         if (ifStatementLength > defaultLineLength) {
             return false
         }
+        val x = 1
         return true
     }
 
