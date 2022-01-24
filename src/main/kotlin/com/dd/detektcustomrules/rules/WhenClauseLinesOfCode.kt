@@ -15,8 +15,9 @@ class WhenClauseLinesOfCode(config: Config) : Rule(config) {
         super.visitWhenEntry(entry)
 
         val newLines = getNewLineSizeOfWhenEntry(entry)
+        val maxStatements = 5
 
-        if (newLines > 5) {
+        if (newLines > maxStatements) {
             report(CodeSmell(issue, Entity.from(entry),
                 "When entry contains " + newLines + " statements (including brackets)." +
                     "of lines of code until next entry. " +
