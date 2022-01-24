@@ -35,20 +35,13 @@ class IfOmittingBraces(config: Config) : Rule(config) {
     }
 
     private fun fitsInOneLine(line: KtIfExpression): Boolean {
-        val ifStatementLength = line.textLength
-        if (ifStatementLength > defaultLineLength) {
-            return false
-        }
-        val x = 1
-        return true
+        val ifStatementLength = line.textLength // Does .textLength considers indentations?
+        return ifStatementLength < defaultLineLength
     }
 
     private fun hasNewLine(line: KtIfExpression): Boolean {
         val ifExpressionString = line.text
-        if (ifExpressionString.contains('\n')) {
-            return true
-        }
-        return false
+        return ifExpressionString.contains('\n')
     }
 
     companion object {

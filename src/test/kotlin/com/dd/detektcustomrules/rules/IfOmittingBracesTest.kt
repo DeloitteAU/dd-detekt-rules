@@ -22,6 +22,20 @@ class IfOmittingBracesTest {
     }
 
     @Test
+    fun `Doesn't need braces cause of indents at the end`() {
+        val code = """
+        class A {
+            fun foo() {
+                val x = 1
+                if (x == 1) return                                                                                                                                                                                                                              
+            }
+        }
+        """
+        val findings = IfOmittingBraces(Config.empty).compileAndLint(code)
+        assertThat(findings).hasSize(0)
+    }
+
+    @Test
     fun `Has braces and is fine`() {
         val code = """
         class A {
@@ -58,6 +72,19 @@ class IfOmittingBracesTest {
             fun foo() {
                 val x = 1
                 if (x == 1) return 39248091481392480914813924809148139248091481392480914813924809148139248091481392480914813924809148139248091481
+            }
+        }
+        """
+        val findings = IfOmittingBraces(Config.empty).compileAndLint(code)
+        assertThat(findings).hasSize(1)
+    }
+    @Test
+    fun `Need braces cause of indents at the beginning`() {
+        val code = """
+        class A {
+            fun foo() {
+                val x = 1
+                if (x == 1)                                                                                                                                             return
             }
         }
         """
