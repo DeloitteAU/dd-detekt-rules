@@ -41,21 +41,21 @@ class WhenClauseLinesOfCodeTest {
             fun foo() {
                 val x = 5
                 when (x) {
-                    0 -> {
+                    0 -> { // 6 lines until next clause
                         methodCall(0)
                         methodCall(1)
                         methodCall(2)
                         methodCall(3)
                     } 
                     1 -> methodCall(24)
-                    2 -> {
+                    2 -> { // 6 lines until next clause
                         methodCall(4)
                         methodCall(5)
                         methodCall(6)
                         methodCall(7)
                     }
                     3 -> methodCall(42)
-                    4 -> {
+                    4 -> { // 6 lines until next clause
                         methodCall(8)
                         methodCall(9)
                         methodCall(10)
@@ -98,22 +98,22 @@ class WhenClauseLinesOfCodeTest {
     }
 
     @Test
-    fun `Should not report when clause has too many lines (5 lines)`() {
+    fun `Should not report when clause has too many lines (5 lines until next clause)`() {
         val code = """
         class A {
             fun foo() {
                 val x = 3
                 when (x) {
-                    0 -> {
+                    0 -> { // 5 lines until next clause
                         methodCall(0)
                         methodCall(1)
                         methodCall(2)
                     }
-                    1 -> {
+                    1 -> { // 4 lines until next clause
                         methodCall(3)
                         methodCall(4)
                     } 
-                    2 -> {
+                    2 -> { // 5 lines until next clause
                         methodCall(5)
                         methodCall(6)
                         methodCall(7)

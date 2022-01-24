@@ -7,7 +7,7 @@ class WhenClauseLinesOfCode(config: Config) : Rule(config) {
     override val issue = Issue(
         javaClass.simpleName,
         Severity.CodeSmell,
-        "When clause has too many lines of code until next clause",
+        "When clause has too many statements (including brackets) until next clause.",
         Debt.FIVE_MINS,
     )
 
@@ -18,9 +18,9 @@ class WhenClauseLinesOfCode(config: Config) : Rule(config) {
 
         if (newLines > 5) {
             report(CodeSmell(issue, Entity.from(entry),
-                "When entry contains " + newLines +
+                "When entry contains " + newLines + " statements (including brackets)." +
                     "of lines of code until next entry. " +
-                    "Please reduce to 5 lines."))
+                    "Please reduce to 5 statements (including brackets)."))
             return
         }
     }
