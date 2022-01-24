@@ -3,7 +3,10 @@ package com.dd.detektcustomrules.rules
 import io.gitlab.arturbosch.detekt.api.*
 import org.jetbrains.kotlin.psi.KtWhenEntry
 
+const val THRESHOLD = 5
+
 class WhenClauseLinesOfCode(config: Config) : Rule(config) {
+
     override val issue = Issue(
         javaClass.simpleName,
         Severity.CodeSmell,
@@ -15,9 +18,8 @@ class WhenClauseLinesOfCode(config: Config) : Rule(config) {
         super.visitWhenEntry(entry)
 
         val newLines = getNewLineSizeOfWhenEntry(entry)
-        val maxStatements = 5
 
-        if (newLines > maxStatements) {
+        if (newLines > THRESHOLD) {
             report(CodeSmell(issue, Entity.from(entry),
                 "When entry contains " + newLines + " statements (including brackets)." +
                     "of lines of code until next entry. " +

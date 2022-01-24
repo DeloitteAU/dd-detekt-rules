@@ -12,8 +12,7 @@ class WhenClauseLinesOfCodeTest {
         val code = """
         class A {
             fun foo() {
-                val x = 2
-                when (x) {
+                when (2) {
                     0 -> {
                         methodCall(0)
                         methodCall(1)
@@ -39,8 +38,7 @@ class WhenClauseLinesOfCodeTest {
         val code = """
         class A {
             fun foo() {
-                val x = 5
-                when (x) {
+                when (2) {
                     0 -> { // 6 lines until next clause
                         methodCall(0)
                         methodCall(1)
@@ -50,7 +48,7 @@ class WhenClauseLinesOfCodeTest {
                     1 -> methodCall(24)
                     2 -> { // 6 lines until next clause
                         methodCall(4)
-                        methodCall(5)
+                        methodCall(2)
                         methodCall(6)
                         methodCall(7)
                     }
@@ -79,8 +77,7 @@ class WhenClauseLinesOfCodeTest {
         val code = """
         class A {
             fun foo() {
-                val x = 3
-                when (x) {
+                when (3) {
                     0 -> methodCall(9)
                     1 -> methodCall(24)
                     2 -> return
@@ -102,8 +99,7 @@ class WhenClauseLinesOfCodeTest {
         val code = """
         class A {
             fun foo() {
-                val x = 3
-                when (x) {
+                when (3) {
                     0 -> { // 5 lines until next clause
                         methodCall(0)
                         methodCall(1)
@@ -114,7 +110,7 @@ class WhenClauseLinesOfCodeTest {
                         methodCall(4)
                     } 
                     2 -> { // 5 lines until next clause
-                        methodCall(5)
+                        methodCall(3)
                         methodCall(6)
                         methodCall(7)
                     } 
