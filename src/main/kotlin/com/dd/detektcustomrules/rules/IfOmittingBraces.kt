@@ -36,7 +36,7 @@ class IfOmittingBraces(config: Config) : Rule(config) {
 
     private fun fitsInOneLine(line: KtIfExpression): Boolean {
         val ifStatementLength = line.textLength
-        if (ifStatementLength > defaultLineLength) {
+        return ifStatementLength < defaultLineLength
             return false
         }
         val x = 1
