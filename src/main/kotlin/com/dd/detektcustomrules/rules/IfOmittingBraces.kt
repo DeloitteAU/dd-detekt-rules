@@ -45,7 +45,7 @@ class IfOmittingBraces(config: Config) : Rule(config) {
 
     private fun hasNewLine(line: KtIfExpression): Boolean {
         val ifExpressionString = line.text
-        if (ifExpressionString.contains('\n')) {
+        return ifExpressionString.contains('\n')
             return true
         }
         return false
