@@ -1,11 +1,7 @@
 package com.dd.detektcustomrules.rules
 
 import io.gitlab.arturbosch.detekt.api.*
-import org.jetbrains.kotlin.com.intellij.psi.PsiElement
-import org.jetbrains.kotlin.com.intellij.psi.PsiWhiteSpace
 import org.jetbrains.kotlin.psi.KtWhenEntry
-import org.jetbrains.kotlin.psi.KtWhenExpression
-import org.jetbrains.kotlin.psi.psiUtil.getChildrenOfType
 
 class WhenClauseLinesOfCode(config: Config) : Rule(config) {
     override val issue = Issue(
