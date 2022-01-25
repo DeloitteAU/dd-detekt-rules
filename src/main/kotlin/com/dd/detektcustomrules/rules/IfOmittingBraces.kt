@@ -10,6 +10,8 @@ import io.gitlab.arturbosch.detekt.api.Severity
 import org.jetbrains.kotlin.psi.KtBlockExpression
 import org.jetbrains.kotlin.psi.KtIfExpression
 
+const val DEFAULT_LINE_LENGTH = 120
+
 class IfOmittingBraces(config: Config) : Rule(config) {
     override val issue = Issue(
         javaClass.simpleName,
@@ -36,15 +38,11 @@ class IfOmittingBraces(config: Config) : Rule(config) {
 
     private fun fitsInOneLine(line: KtIfExpression): Boolean {
         val ifStatementLength = line.textLength // Does .textLength considers indentations?
-        return ifStatementLength < defaultLineLength
+        return ifStatementLength < DEFAULT_LINE_LENGTH
     }
 
     private fun hasNewLine(line: KtIfExpression): Boolean {
         val ifExpressionString = line.text
         return ifExpressionString.contains('\n')
-    }
-
-    companion object {
-        private const val defaultLineLength = 120
     }
 }
