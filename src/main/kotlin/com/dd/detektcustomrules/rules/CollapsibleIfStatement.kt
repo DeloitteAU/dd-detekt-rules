@@ -24,7 +24,13 @@ class CollapsibleIfStatement(config: Config) : Rule(config) {
 
         (expression.then as? KtBlockExpression)?.firstStatement?.let {
             if (it is KtIfExpression) {
-                report(CodeSmell(issue, Entity.from(expression), "Nested if statements detected. Collapsible nested if statements should be merged"))
+                report(
+                    CodeSmell(
+                        issue,
+                        Entity.from(expression),
+                        "Nested if statements detected. Collapsible nested if statements should be merged"
+                    )
+                )
             }
         }
     }
