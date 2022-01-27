@@ -2,11 +2,8 @@ package com.dd.detektcustomrules.rules
 
 import io.gitlab.arturbosch.detekt.api.*
 import org.jetbrains.kotlin.com.intellij.psi.PsiReference
-import org.jetbrains.kotlin.psi.KtBlockExpression
 import org.jetbrains.kotlin.psi.KtWhenEntry
 import org.jetbrains.kotlin.psi.KtWhenExpression
-import org.jetbrains.kotlin.psi.psiUtil.collectDescendantsOfType
-import org.jetbrains.kotlin.psi.psiUtil.findDescendantOfType
 import org.jetbrains.kotlin.psi.psiUtil.forEachDescendantOfType
 
 class NestedWhenStatement(config: Config) : Rule(config) {
