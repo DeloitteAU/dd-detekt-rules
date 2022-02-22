@@ -1,4 +1,3 @@
-
 package com.dd.detektcustomrules
 
 import com.dd.detektcustomrules.rules.*
@@ -16,10 +15,11 @@ class DDRuleSetProvider : RuleSetProvider {
             listOf(
                 CollapsibleIfStatement(config),
                 ExposingMutableObservableTypeProps(config),
-                NamingBackingProperties(config),
-                WhenClauseLinesOfCode(config),
+                ExpressionFunctions(config),
                 IfOmittingBraces(config),
-                ExpressionFunctions(config)
+                NamingBackingProperties(config),
+                NestedWhenStatement(config),
+                WhenClauseLinesOfCode(config),
             ),
         )
     }
